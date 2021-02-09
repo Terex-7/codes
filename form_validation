@@ -1,0 +1,20 @@
+function  seterror(id,errorst){
+          element=document.getElementById(id);
+             //console.log(element.getElementsByClassName("error")[0])
+          element.getElementsByClassName("error")[0].innerHTML=errorst;
+         }
+          function validateForm(){
+              var returnval=true;
+              var nameVal=document.forms["myform"]["fname"].value;
+              if(!nameVal.match(/^[A-Za-z][a-zA-Z_0-9][A-Za-z0-9]+$/))
+             { 
+                  seterror("name","*Username Incorrect");
+                   returnval=false;
+              }
+              var tperiod=document.forms["myform"]["ftime"].value;
+              if(tperiod=="select"){
+               seterror("frequency","*select a field");
+                  returnval=false;
+              }
+              return returnval;
+          } 
