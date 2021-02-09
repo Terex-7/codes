@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    
+    <h1>Employee Details </h1> 
+    <input type="text" id="the_input" placeholder="search" onkeyup="Filter()">
+       
+    <table id="List-of-marks" style="width: 50%;">
+        <tr>
+            <th>Roll-No</th>
+            <th>Name</th>
+            <th>Marks</th>
+        </tr>
+    </table>  
+</body>
+<script >
+
+    let emp=[
+        
+        { "Roll-No":1,"Name":"Anil","Marks":78 },
+        { "Roll-No":2,"Name":"Anirudh","Marks":95 },
+        { "Roll-No":3,"Name":"Anushka","Marks":88 },
+        { "Roll-No":5,"Name":"Sahil","Marks":97 },
+        { "Roll-No":6,"Name":"Satyam","Marks":93 },
+        { "Roll-No":7,"Name":"Tanmay","Marks":89 },
+        { "Roll-No":4,"Name":"Manvendra","Marks":100 }    
+    ];
+
+    emp.sort((a,b)=>(a["Roll-No"] > b["Roll-No"])?1:-1);
+
+    for(i in emp){
+        let row=document.createElement("tr");
+        for(x in emp[i]){
+            let data=document.createElement("td");
+            data.innerHTML=emp[i][x];
+            row.appendChild(data);
+        }
+        document.getElementById("List-of-marks").appendChild(row);
+    }
+
+    
+</script>
+</html>
